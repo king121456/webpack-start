@@ -1,0 +1,16 @@
+{
+  "name": "webpack-start",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:king121456/webpack-start.git",
+  "author": "king121456 <1025924929@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^5.13.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "git-cz"
+    }
+  }
+}
