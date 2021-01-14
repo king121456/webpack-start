@@ -1,12 +1,17 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 module.exports = {
-    entry: path.join(__dirname, '/src/index.js'),
+    entry: {
+        index: path.join(__dirname, '/src/index.js'),
+        print: path.join(__dirname, '/src/print.js'),
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'index.bundle.js'
+        filename: '[name].bundle.js'
     },
+    devtool:'inline-source-map',
     module: {
         rules: [
             {test: /\.css$/i, use: ['style-loader', 'css-loader']},
@@ -14,7 +19,11 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({template: path.join(__dirname, 'src/index.html')})
+        new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'src/index.html'),
+            title: "学习webpack"
+        })
     ],
     mode: 'development'
 }

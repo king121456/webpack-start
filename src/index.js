@@ -1,4 +1,7 @@
 import './style.css'
+
+import printMe from './print'
 const str = 'hello world'
 
-alert(str)
+console.log(str)
+printMe()
